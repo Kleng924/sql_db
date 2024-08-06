@@ -9,3 +9,17 @@ INSERT INTO Members (id, name, age) VALUES
 DELETE FROM Members
 WHERE name = 'John Smith';
 
+USE mysql_assignment_bd;
+SELECT * from WorkoutSessions;
+
+INSERT INTO WorkoutSessions (session_id, member_id, session_date, session_time, activity) VALUES
+(1, 1, '2024-08-01', 'Morning', 'Yoga'),
+(2, 2, '2024-08-01', 'Afternoon', 'Cardio'),
+(3, 3, '2024-08-01', 'Evening', 'Weightlifting');
+
+UPDATE WorkoutSessions
+SET session_time = 'Evening'
+WHERE member_id = (SELECT id FROM Members WHERE name = 'Jane Doe');
+
+DELETE FROM WorkoutSessions
+WHERE member_id = (SELECT id FROM Members WHERE name = 'John Smith');
